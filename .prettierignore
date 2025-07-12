@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+artifacts/
+cache/
+typechain/
+typechain-types/
+dist/
+build/
+
+# Coverage
+coverage/
+coverage.json
+
+# Environment
+.env
+.env.*
+
+# Documentation
+*.md
+
+# Git
+.git/
+.gitignore
