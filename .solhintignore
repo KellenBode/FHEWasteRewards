@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+artifacts/
+cache/
+typechain/
+typechain-types/
+
+# Coverage
+coverage/
+coverage.json
+
+# External libraries
+contracts/lib/
+contracts/interfaces/external/
