@@ -1,0 +1,86 @@
+{
+  "name": "privacy-waste-rewards",
+  "version": "1.0.0",
+  "description": "Privacy-First Waste Classification Rewards System using FHE",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test test/PrivacyWasteRewards.test.js",
+    "test:sepolia": "hardhat test test/PrivacyWasteRewards.sepolia.test.js --network sepolia",
+    "test:all": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "test:gas": "REPORT_GAS=true hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "verify": "hardhat run scripts/verify.js --network sepolia",
+    "interact": "hardhat run scripts/interact.js --network sepolia",
+    "simulate": "hardhat run scripts/simulate.js --network sepolia",
+    "node": "hardhat node",
+    "clean": "hardhat clean",
+    "lint": "npm run lint:sol && npm run lint:js",
+    "lint:sol": "solhint 'contracts/**/*.sol'",
+    "lint:js": "eslint '**/*.{js,ts}'",
+    "lint:fix": "npm run lint:sol:fix && npm run lint:js:fix",
+    "lint:sol:fix": "solhint 'contracts/**/*.sol' --fix",
+    "lint:js:fix": "eslint '**/*.{js,ts}' --fix",
+    "format": "prettier --write '**/*.{js,ts,sol,json,md}'",
+    "format:check": "prettier --check '**/*.{js,ts,sol,json,md}'",
+    "security": "npm audit && npm run security:slither",
+    "security:slither": "slither contracts/ --checklist --markdown-root slither-report.md",
+    "security:mythril": "myth analyze contracts/PrivacyWasteRewards.sol",
+    "performance": "npm run test:gas && npm run size-check",
+    "size-check": "hardhat size-contracts",
+    "prepare": "husky install",
+    "pre-commit": "npm run lint && npm run format:check && npm run test"
+  },
+  "keywords": [
+    "blockchain",
+    "fhe",
+    "privacy",
+    "waste-management",
+    "ethereum"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-security": "^1.7.1",
+    "hardhat": "^2.19.4",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-gas-reporter": "^1.0.9",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-solidity": "^1.2.0",
+    "solhint": "^4.0.0",
+    "solhint-plugin-prettier": "^0.1.0",
+    "solidity-coverage": "^0.8.5"
+  },
+  "dependencies": {
+    "@fhevm/solidity": "^0.1.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0"
+  },
+  "lint-staged": {
+    "*.sol": [
+      "solhint --fix",
+      "prettier --write"
+    ],
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}
+
