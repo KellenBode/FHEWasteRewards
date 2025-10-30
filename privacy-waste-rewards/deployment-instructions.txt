@@ -1,0 +1,44 @@
+# Privacy Waste Rewards - Deployment Instructions
+
+## Prerequisites
+1. Deploy the PrivacyWasteRewards.sol contract to Sepolia testnet
+2. Update the contract address in app.js (line 11)
+
+## Vercel Deployment
+1. Connect your GitHub repository to Vercel
+2. Deploy directly - no build step required (static files)
+3. All files will be served as static assets
+
+## Contract Configuration
+1. Deploy the contract using Hardhat or Remix
+2. Copy the deployed contract address
+3. Update the contractAddress variable in app.js
+
+## Files Structure
+- index.html - Main application interface
+- app.js - Application logic with Web3 integration
+- config.js - Configuration constants
+- vercel.json - Vercel deployment configuration
+- .gitignore - Git ignore rules
+- contracts/ - Smart contract source code
+
+## Features
+- Zero dependencies (uses CDN for ethers.js)
+- Fully static deployment compatible with Vercel
+- Privacy-preserving waste classification system
+- Encrypted user data with FHE
+- Anonymous user registration
+- Leaderboard with encrypted points
+- Reward system
+
+## Usage
+1. Connect MetaMask wallet
+2. Register as anonymous user
+3. Submit waste classifications
+4. Earn encrypted reward points
+5. View leaderboard and statistics
+6. Claim rewards based on performance
+
+## Network Support
+- Currently configured for Sepolia testnet
+- Can be modified for other networks in config.js

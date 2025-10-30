@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Waste Rewards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #68bb59 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(120, 198, 121, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(72, 187, 120, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(56, 178, 172, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 6px rgba(45, 80, 22, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(45, 80, 22, 0.15), 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(104, 187, 89, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(45, 80, 22, 0.2), 0 8px 25px rgba(0,0,0,0.12);
+            border-color: rgba(72, 187, 120, 0.4);
+        }
+
+        .card h2 {
+            color: #2d5016;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 50%, #2f855a 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+            background: linear-gradient(135deg, #4fd1c7 0%, #48bb78 50%, #38a169 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:disabled {
+            background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2d5016;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #c6f6d5;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #48bb78;
+            box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .status.success {
+            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+            color: #1a202c;
+            border-left: 4px solid #48bb78;
+        }
+
+        .status.error {
+            background: linear-gradient(135deg, #fed7d7 0%, #fc8181 100%);
+            color: #1a202c;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .status.info {
+            background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+            color: #1a202c;
+            border-left: 4px solid #3182ce;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #48bb78;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.15);
+        }
+
+        .stat-card h3 {
+            color: #2d5016;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2f855a;
+        }
+
+        .waste-category {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            background: #f7fafc;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .recyclable { background: linear-gradient(135deg, #68d391 0%, #48bb78 100%); }
+        .organic { background: linear-gradient(135deg, #9ae6b4 0%, #68d391 100%); }
+        .hazardous { background: linear-gradient(135deg, #fc8181 0%, #e53e3e 100%); }
+        .general { background: linear-gradient(135deg, #a0aec0 0%, #718096 100%); }
+
+        .hidden {
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #c6f6d5;
+            border-top: 2px solid #48bb78;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .leaderboard-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border-radius: 12px;
+            border-left: 4px solid #48bb78;
+            box-shadow: 0 2px 10px rgba(72, 187, 120, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .leaderboard-entry:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.15);
+        }
+
+        .submission-history {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .submission-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border-radius: 12px;
+            border-left: 4px solid #68d391;
+            box-shadow: 0 2px 8px rgba(104, 211, 145, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .submission-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 4px 12px rgba(104, 211, 145, 0.15);
+        }
+
+        /* Add leaf decoration effect */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #48bb78 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 0.6;
+        }
+
+        /* Scrollbar styles */
+        .submission-history::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .submission-history::-webkit-scrollbar-track {
+            background: #f0fff4;
+            border-radius: 4px;
+        }
+
+        .submission-history::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            border-radius: 4px;
+        }
+
+        .submission-history::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌱 Privacy Waste Rewards</h1>
+            <p>Anonymous waste classification with encrypted rewards</p>
+        </div>
+
+        <div id="connectionStatus" class="status info">
+            <span id="connectionText">Connect your wallet to start</span>
+        </div>
+
+        <div class="grid">
+            <!-- Wallet Connection -->
+            <div class="card">
+                <h2>🔗 Wallet Connection</h2>
+                <button id="connectWallet" class="btn">Connect MetaMask</button>
+                <div id="walletInfo" class="hidden">
+                    <p><strong>Address:</strong> <span id="userAddress"></span></p>
+                    <p><strong>Network:</strong> <span id="networkName"></span></p>
+                    <p><strong>User ID:</strong> <span id="userId">Not registered</span></p>
+                </div>
+            </div>
+
+            <!-- User Registration -->
+            <div class="card">
+                <h2>👤 Anonymous Registration</h2>
+                <button id="registerUser" class="btn" disabled>Register Anonymous User</button>
+                <div id="registrationStatus"></div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- Waste Classification -->
+            <div class="card">
+                <h2>♻️ Submit Waste Classification</h2>
+                <div class="input-group">
+                    <label for="wasteCategory">Waste Category:</label>
+                    <select id="wasteCategory">
+                        <option value="1">🔄 Recyclable (10 points)</option>
+                        <option value="2">🌿 Organic (8 points)</option>
+                        <option value="3">⚠️ Hazardous (15 points)</option>
+                        <option value="4">🗑️ General (5 points)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity">Quantity (1-100):</label>
+                    <input type="number" id="quantity" min="1" max="100" value="1">
+                </div>
+                <button id="submitWaste" class="btn" disabled>Submit Classification</button>
+                <div id="submissionStatus"></div>
+            </div>
+
+            <!-- User Statistics -->
+            <div class="card">
+                <h2>📊 My Statistics</h2>
+                <button id="loadStats" class="btn" disabled>Load My Stats</button>
+                <div id="userStats" class="hidden">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Points</h3>
+                            <div class="value" id="totalPoints">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Recyclable Items</h3>
+                            <div class="value" id="recyclableCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Organic Items</h3>
+                            <div class="value" id="organicCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Hazardous Items</h3>
+                            <div class="value" id="hazardousCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>General Items</h3>
+                            <div class="value" id="generalCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Submissions</h3>
+                            <div class="value" id="submissionCount">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- Public Statistics -->
+            <div class="card">
+                <h2>🌍 Global Statistics</h2>
+                <button id="loadPublicStats" class="btn">Load Global Stats</button>
+                <div id="publicStats">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Users</h3>
+                            <div class="value" id="globalUsers">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Submissions</h3>
+                            <div class="value" id="globalSubmissions">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="card">
+                <h2>🏆 Privacy Leaderboard</h2>
+                <button id="loadLeaderboard" class="btn">Load Leaderboard</button>
+                <div id="leaderboard"></div>
+            </div>
+        </div>
+
+        <!-- Submission History -->
+        <div class="card">
+            <h2>📋 My Submission History</h2>
+            <button id="loadHistory" class="btn" disabled>Load My History</button>
+            <div id="submissionHistory" class="submission-history"></div>
+        </div>
+
+        <!-- Rewards -->
+        <div class="card">
+            <h2>🎁 Claim Rewards</h2>
+            <div class="input-group">
+                <label for="rewardTier">Reward Tier:</label>
+                <select id="rewardTier">
+                    <option value="1">Bronze Tier (100+ points)</option>
+                    <option value="2">Silver Tier (500+ points)</option>
+                    <option value="3">Gold Tier (1000+ points)</option>
+                    <option value="4">Platinum Tier (2500+ points)</option>
+                </select>
+            </div>
+            <button id="claimReward" class="btn" disabled>Claim Reward</button>
+            <div id="rewardStatus"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"
+            onerror="loadEthersFallback()"></script>
+    <script>
+        function loadEthersFallback() {
+            console.log('Primary ethers CDN failed, trying fallback...');
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/ethers@5.7.2/dist/ethers.umd.min.js';
+            script.onerror = function() {
+                document.getElementById('connectionStatus').textContent = 'Error: Unable to load ethers.js library';
+                document.getElementById('connectionStatus').className = 'status error';
+            };
+            document.head.appendChild(script);
+        }
+    </script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

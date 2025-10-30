@@ -1,126 +1,98 @@
-# 🔐 Privacy Waste Rewards
+# 🔐 FHEVM Development Ecosystem
 
-**Privacy-preserving waste classification rewards system powered by Zama FHEVM**
+**Comprehensive Fully Homomorphic Encryption (FHE) Development Suite**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Hardhat](https://img.shields.io/badge/Built%20with-Hardhat-yellow)](https://hardhat.org/)
-[![Tests](https://img.shields.io/badge/Tests-55%20Passing-brightgreen)](./TESTING.md)
-[![Coverage](https://img.shields.io/badge/Coverage-92%25-brightgreen)](https://codecov.io)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.24-blue)](https://soliditylang.org/)
+[![FHEVM](https://img.shields.io/badge/FHEVM-Enabled-blue)](https://docs.zama.ai/)
+[![Tests](https://img.shields.io/badge/Tests-55%20Passing-brightgreen)](./privacy-waste-rewards/TESTING.md)
 
-**[Live Demo](https://privacy-waste-rewards.vercel.app/)** | **[Documentation](./docs/)** | **[Contract Address](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)**
+This repository contains a complete ecosystem for building privacy-preserving decentralized applications using Zama's Fully Homomorphic Encryption Virtual Machine (FHEVM).
 
-Anonymous waste classification with encrypted rewards - a practical demonstration of privacy-preserving environmental incentives using Fully Homomorphic Encryption (FHE).
+## 🌐 Live Deployments
 
----
+### Privacy Waste Rewards Application
+- **Frontend**: [https://fhe-waste-rewards.vercel.app/](https://fhe-waste-rewards.vercel.app/)
+- **Contract**: [0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)
+- **Network**: Sepolia Testnet (Chain ID: 11155111)
+- **Explorer**: [View on Etherscan](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)
 
-## 🌟 Overview
+### FHEVM React Template Examples
+- **Privacy Waste Rewards Demo**: [https://privacy-waste-rewards.vercel.app/](https://privacy-waste-rewards.vercel.app/)
 
-Privacy Waste Rewards combines environmental sustainability with cutting-edge privacy technology. Users can participate anonymously in waste classification activities, earn encrypted rewards, and contribute to environmental data without compromising their privacy.
-
-Built for the **Zama FHE Challenge** - demonstrating practical privacy-preserving applications on blockchain.
-
-**Key Innovation**: Fully encrypted user statistics, leaderboards, and rewards using Zama's FHEVM technology - proving that environmental data collection doesn't require sacrificing privacy.
-
----
-
-## ✨ Features
-
-### 🔒 Privacy-First Architecture
-- **Anonymous Registration** - Zero personal data collection, wallet-based identity
-- **Encrypted Statistics** - All user data stored as `euint8`, `euint64` encrypted types
-- **Private Leaderboards** - Compete anonymously with homomorphically computed rankings
-- **Confidential Rewards** - Encrypted point balances using FHE operations
-
-### ♻️ Smart Waste Classification
-- **Multi-Category Support** - Recyclable, Organic, Hazardous, General waste types
-- **Dynamic Point Allocation** - Automated scoring: Hazardous (10pts), Recyclable (8pts), Organic (5pts), General (3pts)
-- **Quantity-Based Rewards** - Points scale with waste volume (1-100 units)
-- **Encrypted Submissions** - All classification data protected by FHE
-
-### 🏆 Gamified Reward System
-- **Tiered Achievements** - Bronze (100+), Silver (500+), Gold (1000+), Platinum (2500+) points
-- **On-Chain Rewards** - Claimable benefits through smart contract
-- **Real-Time Rankings** - Live encrypted leaderboard updates
-- **FHE Computation** - Homomorphic addition and comparison operations
-
-### 🔗 Enterprise-Grade Development
-- **Automated Testing** - 55 test cases with 92% code coverage
-- **CI/CD Pipeline** - GitHub Actions with multi-version Node.js testing (18.x, 20.x)
-- **Security Auditing** - Integrated Solhint, ESLint, Slither static analysis
-- **Performance Optimization** - Gas reporter, contract sizer, compiler optimization
-- **Pre-commit Hooks** - Husky + lint-staged for code quality enforcement
+demo.mp4
 
 ---
 
-## 🏗️ Architecture
+## 🚀 Technology Stacks
 
-```
-Frontend (Vanilla JS + HTML5)
-├── Client-side wallet integration (MetaMask)
-├── Real-time encrypted data display
-└── Interactive waste classification UI
+### 1️⃣ FHEVM React Template - Universal SDK
 
-Smart Contract (Solidity 0.8.24)
-├── Encrypted storage (euint8, euint64)
-├── Homomorphic operations (FHE.add, FHE.eq, FHE.select)
-├── Anonymous user management
-└── Privacy-preserving leaderboards
+**Location**: `fhevm-react-template/`
 
-Zama FHEVM
-├── Encrypted computation layer
-├── @fhevm/solidity integration
-└── Sepolia testnet deployment
+**Description**: Framework-agnostic SDK for building confidential applications with Fully Homomorphic Encryption. Provides a consistent, developer-friendly approach to encrypted data handling across React, Next.js, Vue, and vanilla JavaScript.
 
-Development Infrastructure
-├── Hardhat (framework)
-├── Mocha + Chai (testing)
-├── GitHub Actions (CI/CD)
-├── Codecov (coverage tracking)
-└── Slither + Solhint (security)
-```
+**Key Features**:
+- ✅ **Framework Agnostic** - Works with React, Next.js, Vue, Node.js, or vanilla JavaScript
+- ✅ **Unified Interface** - Single package wrapping all required dependencies
+- ✅ **Developer Friendly** - Intuitive hooks and modular API structure
+- ✅ **Production Ready** - Minimal lines to get started, following Zama's official patterns
 
-### Project Structure
+**Tech Stack**:
+- **Core SDK**: TypeScript, Framework-agnostic architecture
+- **React Integration**: Custom hooks (useFhevmInit, useFhevmEncrypt, useFhevmDecrypt)
+- **Next.js Example**: Next.js 14 App Router with comprehensive FHE demos
+- **React Example**: Vite-based anonymous voting system
+- **Vanilla JS Example**: Privacy waste rewards application
 
-```
-privacy-waste-rewards/
-├── contracts/
-│   └── PrivacyWasteRewards.sol    # Main FHE contract
-├── scripts/
-│   ├── deploy.js                  # Deployment automation
-│   ├── verify.js                  # Etherscan verification
-│   ├── interact.js                # Interactive CLI
-│   └── simulate.js                # Automated test scenarios
-├── test/
-│   ├── PrivacyWasteRewards.test.js        # 50 unit/integration tests
-│   └── PrivacyWasteRewards.sepolia.test.js # 10 testnet tests
-├── .github/workflows/
-│   ├── test.yml                   # Main CI/CD pipeline
-│   ├── coverage.yml               # Coverage reporting
-│   └── deploy.yml                 # Deployment automation
-├── public/                        # Frontend assets
-├── hardhat.config.js              # Hardhat configuration
-├── package.json                   # Dependencies & scripts
-└── .env.example                   # Configuration template
-```
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- **Node.js**: v18.x or v20.x
-- **npm**: v8.x or higher
-- **MetaMask**: Browser wallet extension
-- **Sepolia ETH**: For testnet transactions ([Sepolia Faucet](https://sepoliafaucet.com/))
-
-### Installation
-
+**Quick Start**:
 ```bash
-# Clone repository
-git clone https://github.com/KellenBode/PrivacyWasteRewards.git
-cd PrivacyWasteRewards
+cd fhevm-react-template
+
+# Install dependencies
+npm install
+
+# Start Next.js example
+npm run dev:nextjs
+
+# Start React voting example
+npm run dev:react
+
+# Build SDK
+npm run build:sdk
+```
+
+**Documentation**: See [fhevm-react-template/README.md](./fhevm-react-template/README.md)
+
+**Live Demos**:
+- Privacy Waste Rewards: [https://privacy-waste-rewards.vercel.app/](https://privacy-waste-rewards.vercel.app/)
+
+---
+
+### 2️⃣ Privacy Waste Rewards - Enterprise FHE Application
+
+**Location**: `privacy-waste-rewards/`
+
+**Description**: Production-grade privacy-preserving anonymous waste classification rewards system demonstrating enterprise-level FHE implementation with comprehensive testing, CI/CD, and security infrastructure.
+
+**Key Features**:
+- ✅ **Privacy-First Architecture** - Anonymous registration, encrypted statistics, private leaderboards
+- ✅ **Smart Waste Classification** - Multi-category support with dynamic point allocation
+- ✅ **Gamified Reward System** - Tiered achievements with on-chain rewards
+- ✅ **Enterprise-Grade Testing** - 55 test cases with 92% code coverage
+- ✅ **Full CI/CD Pipeline** - GitHub Actions with automated testing and deployment
+- ✅ **Security Auditing** - Integrated Solhint, ESLint, Slither static analysis
+
+**Tech Stack**:
+- **Smart Contracts**: Solidity 0.8.24, Zama FHEVM, @fhevm/solidity
+- **Frontend**: Vanilla JavaScript, HTML5, CSS3, Ethers.js, MetaMask
+- **Development**: Hardhat, Mocha + Chai testing framework
+- **CI/CD**: GitHub Actions, Codecov, Etherscan verification
+- **Security**: Solhint, ESLint Security Plugin, Slither, Husky pre-commit hooks
+
+**Quick Start**:
+```bash
+cd privacy-waste-rewards
 
 # Install dependencies
 npm install
@@ -128,11 +100,395 @@ npm install
 # Set up environment
 cp .env.example .env
 # Edit .env with your configuration
+
+# Run tests
+npm test
+
+# Deploy to Sepolia
+npm run deploy:sepolia
 ```
 
-### Environment Configuration
+**Documentation**: See [privacy-waste-rewards/README.md](./privacy-waste-rewards/README.md)
 
-Create a `.env` file with the following:
+**Live Deployment**:
+- **Frontend**: [https://fhe-waste-rewards.vercel.app/](https://fhe-waste-rewards.vercel.app/)
+- **Contract**: [0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)
+- **Network**: Sepolia Testnet (Chain ID: 11155111)
+
+---
+
+## 🎯 Use Cases & Examples
+
+### FHEVM React Template Examples
+
+The `fhevm-react-template/` directory provides multiple implementation patterns:
+
+#### Next.js 14 Example
+**Path**: `fhevm-react-template/examples/nextjs/`
+
+Comprehensive FHE demonstration with:
+- API routes for FHE operations (encrypt, decrypt, compute, keys)
+- React components (EncryptionDemo, ComputationDemo, KeyManager)
+- Real-world use cases (BankingExample, MedicalExample)
+- Complete SDK integration with custom hooks
+
+**Features Demonstrated**:
+- Client-side and server-side FHE operations
+- Key management utilities
+- Security and validation utilities
+- Homomorphic computation examples
+
+#### React Voting System
+**Path**: `fhevm-react-template/examples/react/`
+
+Anonymous voting application using Vite:
+- Privacy-preserving vote counting
+- Encrypted vote tallying
+- Real-time results with FHE
+- Lightweight Vite-based SPA
+
+**Features Demonstrated**:
+- Anonymous voting mechanism
+- Encrypted data aggregation
+- SDK integration without Next.js
+
+#### Privacy Waste Rewards (Vanilla JS)
+**Path**: `fhevm-react-template/examples/privacy-waste-rewards/`
+
+Static HTML + vanilla JavaScript implementation:
+- MetaMask wallet integration
+- Direct ethers.js usage
+- Minimalist deployment approach
+- No build process required
+
+---
+
+### Privacy Waste Rewards Application
+
+The `privacy-waste-rewards/` directory showcases enterprise-grade implementation:
+
+#### Anonymous User Registration
+Users register pseudonymously via wallet address without revealing identity.
+
+#### Encrypted Waste Submissions
+All waste classifications (category, quantity) encrypted before blockchain storage using FHE.
+
+#### Homomorphic Point Calculation
+Points calculated on encrypted data using FHE operations (FHE.add, FHE.select).
+
+#### Private Leaderboards
+Rankings computed without decrypting individual scores, maintaining privacy.
+
+#### Tiered Reward System
+- **Bronze Tier**: 100+ points
+- **Silver Tier**: 500+ points
+- **Gold Tier**: 1000+ points
+- **Platinum Tier**: 2500+ points
+
+---
+
+## 🔧 SDK Architecture (fhevm-react-template)
+
+### Framework-Agnostic Core
+
+```
+┌─────────────────────────────────────┐
+│      Framework Layer (Optional)      │
+│   React Hooks | Vue Composables     │
+└─────────────────────────────────────┘
+              ↓
+┌─────────────────────────────────────┐
+│         SDK Core (Universal)         │
+│  - FhevmSDK Class                   │
+│  - Encryption/Decryption Utils      │
+│  - Contract Interaction Layer       │
+│  - EIP-712 Signing                  │
+└─────────────────────────────────────┘
+              ↓
+┌─────────────────────────────────────┐
+│      Zama FHEVM Dependencies        │
+│  - @fhevm/solidity                  │
+│  - tfhe-js (encryption library)     │
+│  - Ethers.js (blockchain layer)     │
+└─────────────────────────────────────┘
+```
+
+### Core SDK Package Structure
+
+```
+packages/fhevm-sdk/
+├── src/
+│   ├── core/
+│   │   └── FhevmSDK.ts           # Main SDK class
+│   ├── context/
+│   │   └── FhevmContext.tsx      # React context provider
+│   ├── hooks/
+│   │   ├── useFhevmInit.ts       # Initialization hook
+│   │   ├── useFhevmEncrypt.ts    # Encryption hook
+│   │   └── useFhevmDecrypt.ts    # Decryption hook (user + public)
+│   ├── adapters/
+│   │   ├── react.ts              # React adapter
+│   │   ├── vue.ts                # Vue adapter (composables)
+│   │   └── node.ts               # Node.js adapter
+│   ├── utils/
+│   │   ├── encryption.ts         # Encryption utilities
+│   │   ├── decryption.ts         # Decryption utilities
+│   │   ├── eip712.ts             # EIP-712 signing utilities
+│   │   ├── abi.ts                # ABI handling
+│   │   └── network.ts            # Network configuration
+│   ├── types/
+│   │   ├── fhe.ts                # FHE type definitions
+│   │   └── api.ts                # API type definitions
+│   └── index.ts                  # Main exports
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## 🏗️ Smart Contract Architecture (privacy-waste-rewards)
+
+### Encrypted Data Structures
+
+```solidity
+// Encrypted user statistics
+struct EncryptedUserStats {
+    euint8 wasteCategory;        // Encrypted category (1-4)
+    euint8 wasteQuantity;        // Encrypted quantity (1-100)
+    euint64 totalPoints;         // Encrypted total points
+    euint8 submissionCount;      // Encrypted submission count
+}
+
+// Waste categories
+enum WasteCategory {
+    RECYCLABLE,      // 8 points per unit
+    ORGANIC,         // 5 points per unit
+    HAZARDOUS,       // 10 points per unit
+    GENERAL          // 3 points per unit
+}
+```
+
+### Key FHE Operations
+
+```solidity
+// Homomorphic point calculation
+function submitWasteClassification(
+    bytes calldata encryptedCategory,
+    bytes calldata encryptedQuantity
+) public returns (euint64) {
+    euint8 category = TFHE.asEuint8(encryptedCategory);
+    euint8 quantity = TFHE.asEuint8(encryptedQuantity);
+
+    // Compute points homomorphically
+    euint64 points = calculateEncryptedPoints(category, quantity);
+
+    // Add to user's encrypted total
+    stats.totalPoints = FHE.add(stats.totalPoints, points);
+
+    return points;
+}
+```
+
+---
+
+## 🧪 Testing & Quality Assurance
+
+### FHEVM React Template Testing
+- Unit tests for SDK core functionality
+- Integration tests for framework adapters
+- Example application tests
+- Type safety validation
+
+### Privacy Waste Rewards Testing
+- **Total Tests**: 55 comprehensive test cases
+- **Code Coverage**: 92%
+- **Test Categories**:
+  - Deployment & Initialization (5 tests)
+  - User Registration (10 tests)
+  - Waste Classification (12 tests)
+  - Leaderboard (4 tests)
+  - Reward Claiming (3 tests)
+  - Access Control (5 tests)
+  - Edge Cases (5 tests)
+  - Gas Optimization (3 tests)
+  - Integration Scenarios (2 tests)
+
+### CI/CD Pipeline
+
+**Automated Testing** (privacy-waste-rewards):
+- ✅ Runs on every push to main/develop
+- ✅ Runs on all pull requests
+- ✅ Multi-version testing (Node.js 18.x, 20.x)
+- ✅ Parallel jobs: Test, Lint Solidity, Lint JS, Security, Gas Report
+- ✅ Coverage reporting with Codecov
+- ✅ Automatic Etherscan verification
+
+---
+
+## 🛡️ Security & Privacy
+
+### Privacy Model
+
+#### What's Private (Encrypted on-chain)
+- ✅ Individual waste submissions (category + quantity)
+- ✅ User point balances and totals
+- ✅ Submission counts per user
+- ✅ Leaderboard rankings and scores
+- ✅ All user statistics and achievements
+
+#### What's Public (Visible on blockchain)
+- ⚠️ Transaction existence and timestamps
+- ⚠️ Contract interactions (not content)
+- ⚠️ Total number of registered users
+- ⚠️ Waste category definitions
+
+### Security Tooling
+
+**privacy-waste-rewards** includes comprehensive security infrastructure:
+- ✅ **Solhint** - Solidity linting & security rules
+- ✅ **ESLint Security Plugin** - JS vulnerability detection
+- ✅ **Slither** - Static analysis (40+ detectors)
+- ✅ **npm audit** - Dependency scanning
+- ✅ **Husky pre-commit hooks** - Automated quality gates
+
+```bash
+# Run security audit (privacy-waste-rewards)
+cd privacy-waste-rewards
+npm run security
+
+# Individual security checks
+npm run lint:sol              # Solidity linting
+npm run lint:js               # JavaScript security scanning
+npm run security:slither      # Static analysis
+npm audit                     # Dependency check
+```
+
+---
+
+## ⚡ Performance Metrics
+
+### Gas Costs (privacy-waste-rewards)
+
+| Operation | Gas Cost | Target | Status |
+|-----------|----------|--------|--------|
+| User Registration | 52,500 | <100k | ✅ 48% under |
+| Waste Submission | 46,500 | <80k | ✅ 42% under |
+| View Statistics | 15,000 | <30k | ✅ 50% under |
+| Claim Reward | 35,000 | <60k | ✅ 42% under |
+
+**Contract Size**: 18.5 KB (77% of 24 KB limit)
+
+### Optimization Techniques
+- ✅ Packed storage variables (euint8, euint64)
+- ✅ Minimal storage access patterns
+- ✅ View functions for read-only operations
+- ✅ Event emission over storage for historical data
+- ✅ Efficient loops with bounded iterations
+- ✅ Compiler optimization enabled (200 runs)
+- ✅ ViaIR optimization for better gas usage
+
+---
+
+## 📚 Documentation
+
+### FHEVM React Template
+- **[Main README](./fhevm-react-template/README.md)** - Complete SDK documentation
+- **[Getting Started](./fhevm-react-template/docs/getting-started.md)** - Quick setup guide
+- **[SDK Architecture](./fhevm-react-template/docs/architecture.md)** - Design principles
+- **[React Guide](./fhevm-react-template/docs/react.md)** - React hooks and provider
+- **[Next.js Guide](./fhevm-react-template/docs/nextjs.md)** - Next.js integration
+
+### Privacy Waste Rewards
+- **[Main README](./privacy-waste-rewards/README.md)** - Complete application documentation
+- **[TESTING.md](./privacy-waste-rewards/TESTING.md)** - Comprehensive testing guide (450 lines)
+- **[CICD.md](./privacy-waste-rewards/CICD.md)** - CI/CD pipeline documentation (650 lines)
+- **[SECURITY_PERFORMANCE.md](./privacy-waste-rewards/SECURITY_PERFORMANCE.md)** - Security & performance guide (600 lines)
+- **[SECURITY_CHECKLIST.md](./privacy-waste-rewards/SECURITY_CHECKLIST.md)** - Pre-deployment checklist (450 lines)
+- **[DEPLOYMENT.md](./privacy-waste-rewards/DEPLOYMENT.md)** - Deployment instructions
+
+---
+
+## 🚀 Quick Start Guide
+
+### Option 1: FHEVM React Template (SDK Development)
+
+Perfect for building new FHE applications with React/Next.js:
+
+```bash
+# Navigate to template
+cd fhevm-react-template
+
+# Install all dependencies
+npm install
+
+# Start Next.js example
+npm run dev:nextjs
+
+# Start React voting example
+npm run dev:react
+
+# Build SDK package
+npm run build:sdk
+
+# Run tests
+npm test
+```
+
+### Option 2: Privacy Waste Rewards (Production DApp)
+
+Perfect for studying enterprise-grade FHE implementation:
+
+```bash
+# Navigate to application
+cd privacy-waste-rewards
+
+# Install dependencies
+npm install
+
+# Set up environment
+cp .env.example .env
+# Edit .env with your Sepolia RPC URL and private key
+
+# Compile contracts
+npm run compile
+
+# Run comprehensive test suite
+npm test
+
+# Run with coverage
+npm run test:coverage
+
+# Deploy to Sepolia
+npm run deploy:sepolia
+
+# Verify on Etherscan
+npm run verify:sepolia
+
+# Run interactive CLI
+npm run interact
+```
+
+---
+
+
+
+
+---
+
+## 🛠️ Development Environment Setup
+
+### Prerequisites
+
+- **Node.js**: v18.x or v20.x
+- **npm**: v8.x or higher
+- **Git**: Latest version
+- **MetaMask**: Browser wallet extension
+- **Sepolia ETH**: For testnet transactions ([Sepolia Faucet](https://sepoliafaucet.com/))
+
+### Environment Variables
+
+Create a `.env` file in the privacy-waste-rewards directory:
 
 ```env
 # Network Configuration
@@ -161,513 +517,29 @@ MAX_BATCH_SIZE=50
 MIN_TX_INTERVAL=1
 ```
 
-### Compile Contracts
-
-```bash
-# Compile smart contracts
-npm run compile
-
-# Check contract size
-npm run size-check
-```
-
-### Run Tests
-
-```bash
-# Run all tests
-npm test
-
-# Run with gas reporting
-npm run test:gas
-
-# Run with coverage
-npm run test:coverage
-
-# Run Sepolia testnet tests
-npm run test:sepolia
-```
-
-### Deploy to Sepolia
-
-```bash
-# Deploy contract
-npm run deploy:sepolia
-
-# Verify on Etherscan
-npm run verify:sepolia
-```
-
-### Interact with Contract
-
-```bash
-# Interactive CLI
-npm run interact
-
-# Run simulation scenarios
-npm run simulate
-```
-
 ---
 
-## 🌐 Live Deployment
-
-**Network**: Sepolia Testnet (Chain ID: 11155111)
-
-**Contract Address**: `0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14`
-
-**Explorer**: [View on Sepolia Etherscan](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)
-
-**Frontend**: [https://privacy-waste-rewards.vercel.app/](https://privacy-waste-rewards.vercel.app/)
-
-**Video Demo**: [PrivacyWasteRewards.mp4](./PrivacyWasteRewards.mp4)
-
----
-
-## 🔧 Technical Implementation
-
-### FHE Smart Contract Operations
-
-```solidity
-// Encrypted user statistics
-struct EncryptedUserStats {
-    euint8 wasteCategory;        // Encrypted category
-    euint8 wasteQuantity;        // Encrypted quantity
-    euint64 totalPoints;         // Encrypted total points
-    euint8 submissionCount;      // Encrypted submission count
-}
-
-// Homomorphic point calculation
-function submitWasteClassification(
-    bytes calldata encryptedCategory,
-    bytes calldata encryptedQuantity
-) public returns (euint64) {
-    // FHE encrypted operations
-    euint8 category = TFHE.asEuint8(encryptedCategory);
-    euint8 quantity = TFHE.asEuint8(encryptedQuantity);
-
-    // Compute points homomorphically
-    euint64 points = calculateEncryptedPoints(category, quantity);
-
-    // Add to user's encrypted total
-    stats.totalPoints = FHE.add(stats.totalPoints, points);
-
-    return points;
-}
-
-// Encrypted comparison for leaderboard
-function getLeaderboard(uint256 count) public view returns (address[]) {
-    // Sort by encrypted totalPoints using FHE.gt comparisons
-    // Rankings computed without decrypting individual scores
-}
-```
-
-### Key FHE Operations
-
-- **`FHE.add(a, b)`** - Homomorphic addition for point accumulation
-- **`FHE.eq(a, b)`** - Encrypted equality checks for waste categories
-- **`FHE.select(condition, a, b)`** - Conditional selection for point calculation
-- **`FHE.ge(a, b)`** - Encrypted comparison for reward tier validation
-- **`TFHE.decrypt(encryptedValue)`** - Authorized decryption for user queries
-
-### Gas Costs
-
-| Operation | Gas Cost | Target | Status |
-|-----------|----------|--------|--------|
-| User Registration | 52,500 | <100k | ✅ 48% under |
-| Waste Submission | 46,500 | <80k | ✅ 42% under |
-| View Statistics | 15,000 | <30k | ✅ 50% under |
-| Claim Reward | 35,000 | <60k | ✅ 42% under |
-
-**Contract Size**: 18.5 KB (77% of 24 KB limit)
-
----
-
-## 🧪 Testing
-
-### Test Coverage
-
-- **Total Tests**: 55 test cases
-- **Code Coverage**: 92%
-- **Test Files**: 2 (unit/integration + Sepolia testnet)
-- **CI/CD**: Automated testing on every push/PR
-
-### Test Categories
-
-```bash
-# Deployment & Initialization (5 tests)
-✓ Should deploy contract with correct owner
-✓ Should initialize with default state
-✓ Should set up FHE encryption properly
-
-# User Registration (10 tests)
-✓ Should register new anonymous user
-✓ Should prevent duplicate registration
-✓ Should emit UserRegistered event
-
-# Waste Classification (12 tests)
-✓ Should submit waste with encrypted data
-✓ Should calculate points correctly per category
-✓ Should handle all waste types (1-4)
-
-# Leaderboard (4 tests)
-✓ Should generate encrypted rankings
-✓ Should order by total points
-
-# Reward Claiming (3 tests)
-✓ Should allow claiming at Bronze tier (100+)
-✓ Should validate reward eligibility
-
-# Access Control (5 tests)
-✓ Should restrict owner-only functions
-✓ Should enforce pauser role
-
-# Edge Cases (5 tests)
-✓ Should handle boundary values
-✓ Should reject invalid categories
-
-# Gas Optimization (3 tests)
-✓ Should stay under gas limits
-✓ Should optimize storage usage
-
-# Integration Scenarios (2 tests)
-✓ Should handle complete user journey
-✓ Should support multi-user interactions
-```
-
-See [TESTING.md](./TESTING.md) for detailed testing documentation.
-
----
-
-## 🛡️ Security & Privacy
-
-### Privacy Model
-
-#### What's Private (Encrypted on-chain)
-
-- ✅ Individual waste submissions (category + quantity)
-- ✅ User point balances and totals
-- ✅ Submission counts per user
-- ✅ Leaderboard rankings and scores
-
-#### What's Public (Visible on blockchain)
-
-- ⚠️ Transaction existence and timestamps
-- ⚠️ Contract interactions (not content)
-- ⚠️ Total number of registered users
-- ⚠️ Waste category definitions (1-4)
-
-#### Decryption Permissions
-
-- **Users**: Can decrypt only their own encrypted statistics
-- **Contract Owner**: Administrative access for emergency functions
-- **Public**: No access to any encrypted user data
-
-### Security Tooling
-
-```bash
-# Solidity security linting
-npm run lint:sol
-
-# JavaScript security scanning
-npm run lint:js
-
-# Static analysis with Slither
-npm run security:slither
-
-# Dependency vulnerability check
-npm audit
-
-# Full security audit
-npm run security
-```
-
-**Security Stack**:
-- ✅ Solhint - Solidity linting & security rules
-- ✅ ESLint Security Plugin - JS vulnerability detection
-- ✅ Slither - Static analysis (40+ detectors)
-- ✅ npm audit - Dependency scanning
-- ✅ Husky pre-commit hooks - Automated quality gates
-
-### DoS Protection
-
-- **Gas Limit Enforcement**: MAX_GAS_LIMIT=500000
-- **Rate Limiting**: MIN_TX_INTERVAL=1 second
-- **Batch Size Limits**: MAX_BATCH_SIZE=50
-- **Complexity Limits**: Code complexity score <8
-
-See [SECURITY_PERFORMANCE.md](./SECURITY_PERFORMANCE.md) for comprehensive security documentation.
-
----
-
-## 📋 Usage Guide
-
-### 1. Register Anonymously
-
-```javascript
-// Frontend integration
-const contract = new ethers.Contract(contractAddress, abi, signer);
-await contract.registerAnonymousUser();
-```
-
-### 2. Submit Waste Classification
-
-```javascript
-// Encrypt waste data client-side
-const encryptedCategory = await encryptData(category); // 1-4
-const encryptedQuantity = await encryptData(quantity); // 1-100
-
-// Submit to blockchain
-await contract.submitWasteClassification(
-  encryptedCategory,
-  encryptedQuantity
-);
-```
-
-### 3. View Encrypted Statistics
-
-```javascript
-// Retrieve your encrypted stats
-const stats = await contract.getMyEncryptedStats();
-
-// Decrypt with your private key
-const totalPoints = await decryptForUser(stats.totalPoints);
-const submissionCount = await decryptForUser(stats.submissionCount);
-```
-
-### 4. Check Leaderboard Position
-
-```javascript
-// Get top 10 anonymous rankings
-const leaderboard = await contract.getLeaderboard(10);
-```
-
-### 5. Claim Rewards
-
-```javascript
-// Claim when eligible (Bronze: 100+, Silver: 500+, etc.)
-await contract.claimReward();
-```
-
----
-
-## 🔄 CI/CD Pipeline
-
-### GitHub Actions Workflows
-
-**Main Test Workflow** (`.github/workflows/test.yml`)
-- ✅ Runs on every push to main/develop
-- ✅ Runs on all pull requests
-- ✅ Multi-version testing (Node.js 18.x, 20.x)
-- ✅ 5 parallel jobs: Test, Lint Solidity, Lint JS, Security, Gas Report
-
-**Coverage Workflow** (`.github/workflows/coverage.yml`)
-- ✅ Generates coverage reports
-- ✅ Uploads to Codecov
-- ✅ PR comments with coverage diff
-
-**Deployment Workflow** (`.github/workflows/deploy.yml`)
-- ✅ Manual deployment trigger
-- ✅ Network selection (Sepolia/Mainnet)
-- ✅ Automatic Etherscan verification
-
-See [CICD.md](./CICD.md) for complete CI/CD documentation.
-
----
-
-## ⚡ Performance Optimization
-
-### Compiler Optimization
-
-```javascript
-// hardhat.config.js
-solidity: {
-  version: "0.8.24",
-  settings: {
-    optimizer: {
-      enabled: true,
-      runs: 200        // Balanced deployment vs runtime costs
-    },
-    viaIR: true        // Better optimization without sacrificing safety
-  }
-}
-```
-
-### Gas Optimization Techniques
-
-- ✅ Packed storage variables (`euint8`, `euint64`)
-- ✅ Minimal storage access patterns
-- ✅ View functions for read-only operations
-- ✅ Event emission over storage for historical data
-- ✅ Efficient loops with bounded iterations
-
-### Performance Monitoring
-
-```bash
-# Generate gas report
-npm run test:gas
-
-# Check contract size
-npm run size-check
-
-# Full performance check
-npm run performance
-```
-
----
-
-## 🛠️ Development
-
-### NPM Scripts
-
-```bash
-# Compilation
-npm run compile              # Compile contracts
-npm run clean                # Clean artifacts
-
-# Testing
-npm test                     # Run all tests
-npm run test:gas             # Test with gas reporting
-npm run test:coverage        # Generate coverage report
-npm run test:sepolia         # Run Sepolia testnet tests
-
-# Code Quality
-npm run lint                 # Lint all code
-npm run lint:sol             # Lint Solidity
-npm run lint:js              # Lint JavaScript
-npm run format               # Format all code
-npm run format:check         # Check formatting
-
-# Security
-npm run security             # Full security audit
-npm run security:slither     # Run Slither analysis
-npm audit                    # Check dependencies
-
-# Performance
-npm run performance          # Performance check
-npm run size-check           # Contract size check
-
-# Deployment
-npm run deploy:sepolia       # Deploy to Sepolia
-npm run verify:sepolia       # Verify on Etherscan
-npm run interact             # Interactive CLI
-npm run simulate             # Run simulation scenarios
-```
-
-### Pre-commit Hooks
-
-Husky automatically runs on every commit:
-
-```bash
-# .husky/pre-commit
-✓ Lint-staged (auto-fix code)
-✓ Solhint (Solidity security)
-✓ ESLint (JavaScript quality)
-✓ Prettier (formatting)
-✓ Unit tests
-```
-
-Pre-push validation:
-
-```bash
-# .husky/pre-push
-✓ Full test suite
-✓ Security audit
-✓ Format check
-✓ Coverage validation
-```
-
----
-
-## 📚 Documentation
-
-- **[TESTING.md](./TESTING.md)** - Comprehensive testing guide (450 lines)
-- **[CICD.md](./CICD.md)** - CI/CD pipeline documentation (650 lines)
-- **[SECURITY_PERFORMANCE.md](./SECURITY_PERFORMANCE.md)** - Security & performance guide (600 lines)
-- **[SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md)** - Pre-deployment checklist (450 lines)
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment instructions
-- **[LICENSE](./LICENSE)** - MIT License
-
----
-
-## 🌍 Tech Stack
-
-### Smart Contract Layer
-- **Solidity**: v0.8.24
-- **Zama FHEVM**: Fully Homomorphic Encryption
-- **@fhevm/solidity**: FHE operations library
-- **Hardhat**: Development framework
-- **OpenZeppelin**: Security libraries (planned)
-
-### Frontend Layer
-- **Vanilla JavaScript**: Lightweight client
-- **HTML5 + CSS3**: Modern web standards
-- **Ethers.js**: Web3 wallet integration
-- **MetaMask**: Wallet connector
-
-### Development Tools
-- **Mocha + Chai**: Testing framework
-- **Solhint**: Solidity linting
-- **ESLint**: JavaScript linting
-- **Prettier**: Code formatting
-- **Slither**: Static analysis
-- **Husky**: Git hooks
-- **lint-staged**: Staged file linting
-
-### CI/CD Infrastructure
-- **GitHub Actions**: Automation platform
-- **Codecov**: Coverage tracking
-- **Etherscan**: Contract verification
-- **Vercel**: Frontend deployment
-
-### Network
-- **Sepolia Testnet**: Testing environment
-- **Chain ID**: 11155111
-- **Faucet**: [Sepolia Faucet](https://sepoliafaucet.com/)
-
----
-
-## 🎯 Roadmap
-
-### Phase 1: Foundation ✅ (Current)
-- [x] FHE smart contract implementation
-- [x] Anonymous user registration
-- [x] Encrypted waste classification
-- [x] Privacy-preserving leaderboards
-- [x] Reward tier system
-- [x] Comprehensive testing (55 tests)
-- [x] CI/CD pipeline
-- [x] Security tooling integration
-
-### Phase 2: Enhancement 🚧 (In Progress)
-- [ ] Advanced FHE operations (multiplication, division)
-- [ ] Multi-wallet support (WalletConnect, Coinbase)
-- [ ] Enhanced frontend UI/UX
-- [ ] Real-time notifications
-- [ ] Mobile-responsive design
-
-### Phase 3: Expansion 📅 (Planned)
-- [ ] Mobile application (iOS/Android)
-- [ ] Additional waste categories
-- [ ] IoT smart bin integration
-- [ ] Carbon credit marketplace
-- [ ] Multi-chain deployment
-- [ ] DAO governance
-
-### Phase 4: Scale 🔮 (Future)
-- [ ] Enterprise API
-- [ ] Municipality partnerships
-- [ ] Advanced analytics dashboard
-- [ ] NFT achievement badges
-- [ ] Cross-chain bridge
-- [ ] Mainnet deployment
+## 🎯 Technology Comparison
+
+| Feature | FHEVM React Template | Privacy Waste Rewards |
+|---------|---------------------|----------------------|
+| **Purpose** | SDK & Framework Templates | Production DApp Example |
+| **Frontend** | React, Next.js, Vanilla JS | Vanilla JavaScript |
+| **Smart Contract** | Example contracts | Full production contract |
+| **Testing** | Basic SDK tests | 55 tests, 92% coverage |
+| **CI/CD** | Not included | Full GitHub Actions pipeline |
+| **Security** | Basic | Enterprise-grade (Solhint, Slither, ESLint) |
+| **Documentation** | SDK docs | 2,000+ lines of docs |
+| **Use Case** | Development toolkit | Real-world application |
+| **Deployment** | Examples only | Production-ready on Sepolia |
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions from developers, privacy advocates, and environmental enthusiasts!
+We welcome contributions to both technology stacks!
 
-### How to Contribute
+### Development Guidelines
 
 1. **Fork the repository**
 2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
@@ -678,84 +550,28 @@ We welcome contributions from developers, privacy advocates, and environmental e
 7. **Push to branch** (`git push origin feature/amazing-feature`)
 8. **Open a Pull Request**
 
-### Development Guidelines
+### Code Standards
 
 - ✅ Follow existing code style (Prettier + ESLint)
-- ✅ Add tests for new features (maintain 90%+ coverage)
+- ✅ Add tests for new features (maintain 90%+ coverage for privacy-waste-rewards)
 - ✅ Update documentation as needed
-- ✅ Ensure all CI/CD checks pass
+- ✅ Ensure all CI/CD checks pass (for privacy-waste-rewards)
 - ✅ Include clear commit messages
-- ✅ Pre-commit hooks will auto-format code
-
-### Code of Conduct
-
-- Be respectful and inclusive
-- Provide constructive feedback
-- Focus on what is best for the community
-- Show empathy towards other contributors
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Issue: Tests failing locally**
-```bash
-# Clear cache and reinstall
-npm run clean
-rm -rf node_modules
-npm install
-npm test
-```
-
-**Issue: Contract deployment fails**
-```bash
-# Check environment variables
-cat .env
-
-# Verify Sepolia ETH balance
-npx hardhat run scripts/check-balance.js --network sepolia
-
-# Check RPC connection
-curl $SEPOLIA_RPC_URL
-```
-
-**Issue: Gas estimation errors**
-```bash
-# Increase gas limit in hardhat.config.js
-networks: {
-  sepolia: {
-    gas: 6000000,
-    gasPrice: 'auto'
-  }
-}
-```
-
-**Issue: FHE encryption errors**
-```bash
-# Ensure @fhevm/solidity is properly installed
-npm list @fhevm/solidity
-
-# Verify contract address in frontend
-console.log(contractAddress);
-```
-
-See [TESTING.md](./TESTING.md#troubleshooting) for more debugging tips.
+- ✅ Pre-commit hooks will auto-format code (for privacy-waste-rewards)
 
 ---
 
 ## 📞 Support & Resources
 
-### Documentation
+### Official Documentation
 - **Zama Documentation**: [https://docs.zama.ai/](https://docs.zama.ai/)
 - **FHEVM SDK**: [https://github.com/zama-ai/fhevm](https://github.com/zama-ai/fhevm)
 - **Hardhat Docs**: [https://hardhat.org/docs](https://hardhat.org/docs)
 - **Sepolia Testnet**: [https://sepolia.dev/](https://sepolia.dev/)
 
 ### Community
-- **GitHub Issues**: [Report bugs or request features](https://github.com/KellenBode/PrivacyWasteRewards/issues)
-- **Discussions**: [Join community discussions](https://github.com/KellenBode/PrivacyWasteRewards/discussions)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/KellenBode/FHEWasteRewards/issues)
+- **Discussions**: [Join community discussions](https://github.com/KellenBode/FHEWasteRewards/discussions)
 
 ### Related Projects
 - **Zama Bounty Program**: [https://github.com/zama-ai/bounty-program](https://github.com/zama-ai/bounty-program)
@@ -765,12 +581,12 @@ See [TESTING.md](./TESTING.md#troubleshooting) for more debugging tips.
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+Both technology stacks are licensed under the **MIT License**.
 
 ```
 MIT License
 
-Copyright (c) 2025 Privacy Waste Rewards
+Copyright (c) 2025 FHEVM Development Ecosystem
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -791,39 +607,45 @@ copies or substantial portions of the Software.
 - **Zama** - For pioneering Fully Homomorphic Encryption and FHEVM technology
 - **Ethereum Foundation** - For the Sepolia testnet infrastructure
 - **Hardhat Team** - For the exceptional development framework
+- **React Team** - For the React and Next.js frameworks
 
-### Inspiration
-This project demonstrates that **privacy and transparency are not mutually exclusive**. By leveraging FHE technology, we can build systems that are:
+### Recognition
+
+This repository demonstrates that **privacy and functionality can coexist**:
 - **Accountable** - All transactions verifiable on-chain
 - **Private** - Individual data remains encrypted
-- **Sustainable** - Incentivizing environmental action
-- **Inclusive** - Anonymous participation for all
-
-### Special Thanks
-- Privacy technology researchers advancing FHE
-- Environmental advocates promoting sustainable practices
-- Open-source contributors building Web3 infrastructure
-- The Zama community for technical support and feedback
+- **Developer-Friendly** - Easy-to-use SDK and clear examples
+- **Production-Ready** - Enterprise-grade testing and security
 
 ---
 
-## 🎖️ Recognition
+## 🎖️ Achievement Highlights
 
-**Built for the Zama FHE Challenge** - Demonstrating practical privacy-preserving applications that balance transparency with confidentiality.
+### FHEVM React Template
+- ✅ Framework-agnostic SDK design
+- ✅ Multiple example implementations (Next.js, React, Vanilla JS)
+- ✅ Comprehensive React hooks (useFhevmInit, useFhevmEncrypt, useFhevmDecrypt)
+- ✅ Complete API route examples
+- ✅ Security and validation utilities
 
-**Achievement Highlights**:
+### Privacy Waste Rewards
 - ✅ 55 comprehensive tests (92% coverage)
 - ✅ Enterprise-grade CI/CD pipeline
 - ✅ Multi-layer security auditing
 - ✅ Gas-optimized FHE operations
 - ✅ Production-ready deployment infrastructure
+- ✅ Real-world privacy-preserving use case
 
 ---
 
-**Privacy + Sustainability = Future**
+**Privacy + Sustainability + Developer Experience = Future of Web3**
 
-*Join us in building a more private and sustainable world. Every encrypted submission counts!* 🌱🔐
+*Building a more private, sustainable, and developer-friendly blockchain ecosystem with Fully Homomorphic Encryption.* 🌱🔐
 
 ---
 
-**Quick Links**: [Live Demo](https://privacy-waste-rewards.vercel.app/) | [Documentation](./docs/) | [GitHub](https://github.com/KellenBode/PrivacyWasteRewards) | [Contract](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)
+**Quick Navigation**:
+- [FHEVM React Template →](./fhevm-react-template/)
+- [Privacy Waste Rewards →](./privacy-waste-rewards/)
+- [Live Demo](https://fhe-waste-rewards.vercel.app/)
+- [Contract](https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14)
