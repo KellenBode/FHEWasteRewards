@@ -22,6 +22,7 @@ This repository contains a complete ecosystem for building privacy-preserving de
 
 demo.mp4
 
+
 ---
 
 ## 🚀 Technology Stacks
@@ -244,6 +245,49 @@ packages/fhevm-sdk/
 ├── tsconfig.json
 └── README.md
 ```
+
+---
+
+## 🆕 Privacy Rewards V2 - Enhanced Architecture
+
+### New Features in V2
+
+The V2 contract (`PrivacyRewardsV2.sol`) introduces advanced features:
+
+| Feature | Description |
+|---------|-------------|
+| **Gateway Callback Pattern** | Decoupled decryption with asynchronous callbacks |
+| **Refund Mechanism** | Automatic refund handling for failed decryptions |
+| **Timeout Protection** | 24-hour emergency timeout to prevent fund locks |
+| **Score Obfuscation** | Privacy-preserving leaderboard with hidden lower bits |
+| **Division Privacy** | Random multipliers to protect division operations |
+| **Non-reentrant Guard** | Protection against reentrancy attacks |
+| **Input Validation** | Comprehensive modifier-based validation |
+
+### V2 Flow Architecture
+
+```
+User Submit → Encryption → Gateway Request → Decryption
+                              ↓
+                    ┌────────────────────┐
+                    │   Success Path     │
+                    │  ← Callback →      │
+                    │  Update Points     │
+                    │  Emit Event        │
+                    └────────────────────┘
+                              ↓
+                    ┌────────────────────┐
+                    │   Failure Path     │
+                    │  Queue Refund      │
+                    │  24h Timeout       │
+                    │  Claim Available   │
+                    └────────────────────┘
+```
+
+### V2 Documentation
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Complete architecture documentation
+- **[API.md](./API.md)** - Full API documentation with examples
+- **[UPGRADE_GUIDE.md](./UPGRADE_GUIDE.md)** - V1 to V2 migration guide
 
 ---
 

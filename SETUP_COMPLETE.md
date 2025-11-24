@@ -134,7 +134,7 @@ D:\
 
 ### Step 1: Install Dependencies
 ```bash
-cd D:\zamadapp\dapp142
+cd /path/to/project
 npm install
 ```
 
@@ -261,10 +261,10 @@ Interactive menu with 9 options for manual testing.
 ## 📊 Contract Information
 
 ### Current Deployment
-**Contract Address**: `0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14`
+**Contract Address**: `0x...` (to be filled after deployment)
 **Network**: Sepolia Testnet
 **Chain ID**: 11155111
-**Etherscan**: https://sepolia.etherscan.io/address/0x8EAB26B5C6E8Efe05D30b479C483802D2Ab15c14
+**Etherscan**: https://sepolia.etherscan.io/address/0x...
 
 ### Contract Features
 - ✅ Anonymous user registration
