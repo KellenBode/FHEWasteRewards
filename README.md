@@ -20,7 +20,7 @@ This repository contains a complete ecosystem for building privacy-preserving de
 ### FHEVM React Template Examples
 - **Privacy Waste Rewards Demo**: [https://privacy-waste-rewards.vercel.app/](https://privacy-waste-rewards.vercel.app/)
 
-demo.mp4
+demo.mp4 https://streamable.com/nkpirp
 
 
 ---
